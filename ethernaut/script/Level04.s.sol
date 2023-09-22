@@ -22,4 +22,4 @@ contract Level04 is Script {
     }
 }
 
-// forge script script/Level02.s.sol --broadcast --rpc-url sepolia
+// forge script script/Level04.s.sol --broadcast --rpc-url sepolia
