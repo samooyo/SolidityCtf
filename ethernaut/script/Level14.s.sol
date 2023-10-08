@@ -11,7 +11,6 @@ contract Level14 is Script {
     address caller = vm.addr(vm.envUint("PRIVATE_KEY"));
 
     function run() public {
-        // GatekeeperTwo instance = new GatekeeperTwo();
         GatekeeperTwo instance = GatekeeperTwo(vm.envAddress("LVL14_ADDR"));
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 

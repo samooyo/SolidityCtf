@@ -9,7 +9,7 @@ contract Attack {
         //              0x b1 b2 b3 b4 b5 b6 b7 b8
         // condition 1: 0x                   FF FF
         // condition 2: 0x             00 00 FF FF
-        // condition 1: 0x FF FF FF FF 00 00 FF FF
+        // condition 3: 0x FF FF FF FF 00 00 FF FF
 
         bytes8 addrInBytes = bytes8(uint64(uint160(tx.origin)));
         bytes8 mask = 0xFFFFFFFF0000FFFF;
