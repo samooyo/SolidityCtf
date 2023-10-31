@@ -5,8 +5,6 @@ import {Script, console2} from "forge-std/Script.sol";
 import {IEthernaut} from "../interfaces/IEthernaut.sol";
 import {Dex, SwappableToken} from "../src/Level22.sol";
 
-// import {Attack} from "../src/Level22Attack.sol";
-
 contract Level22 is Script {
     IEthernaut _ethernaut = IEthernaut(vm.envAddress("ETHERNAUT_ADDR"));
     address _caller = vm.addr(vm.envUint("PRIVATE_KEY"));
