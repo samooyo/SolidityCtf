@@ -39,4 +39,4 @@ contract Level23 is Script {
     }
 }
 
-// forge script script/Level23.s.sol --broadcast --rpc-url sepolia -vvvv
+// forge script script/Level23.s.sol --tc Level23 --broadcast --rpc-url sepolia -vvv
